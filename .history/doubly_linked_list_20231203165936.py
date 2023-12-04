@@ -1,14 +1,23 @@
 # contains a head, tail and length property.
 # each node points to another node or null.
+class Node:
+    def __init__(self, val, next = None, prev = None):
+        self.val: int = val
+        self.next: Node | None = next
+        self.prev: Node | None = prev
 
-class SinglyLinkedList:
+    def __str__(self):
+        return f"Node(
+            val: {self.val}, prev: {self.prev}, next: {self.next})"
+
+class DoublyLinkedList:
     def __init__(self, head = None, tail = None, length = 0):
         self.head: Node | None = head
         self.tail: Node | None = tail
         self.length: int = length
 
     def __str__(self):
-        return f"SinglyLinkedList: {self.head}"
+        return f"DoublyLinkedList: {self.head}"
 
     # O(1)
     def push(self, val: int):
@@ -17,6 +26,8 @@ class SinglyLinkedList:
         if self.head == None:
             self.head = new_node
             self.tail = new_node
+                # self.head.next = self.tail
+                # self.tail.prev = self.head
         elif self.tail is not None:
             self.tail.next = new_node
             self.tail = new_node
@@ -123,15 +134,7 @@ class SinglyLinkedList:
         self.head = accu
         return prev
 
-class Node:
-    def __init__(self, val):
-        self.val: int | None = val
-        self.next: Node | None = None
-
-    def __str__(self):
-        return f"Node(val: {self.val}, next: {self.next})"
-
-s_list = SinglyLinkedList()
+s_list = DoublyLinkedList()
 s_list.push(1)
 s_list.push(2)
 s_list.push(3)
@@ -140,15 +143,15 @@ s_list.push(5)
 s_list.push(6)
 s_list.push(7)
 s_list.push(8)
-print("find:", s_list.find(8))
-print("poped:", s_list.pop())
-print("find:", s_list.find(8))
-print("shift:", s_list.shift(0))
-print("unshift:", s_list.unshift())
-print(s_list.get_len())
-print("get:", s_list.get(4))
-print("set:", s_list.set(100, 4))
-print("insert:", s_list.insert(200, 5))
-print("remove:", s_list.remove(5))
+# print("find:", s_list.find(8))
+# print("poped:", s_list.pop())
+# print("find:", s_list.find(8))
+# print("shift:", s_list.shift(0))
+# print("unshift:", s_list.unshift())
+# print(s_list.get_len())
+# print("get:", s_list.get(4))
+# print("set:", s_list.set(100, 4))
+# print("insert:", s_list.insert(200, 5))
+# print("remove:", s_list.remove(5))
 print("s_list:", s_list)
-print("s_list reverse:", s_list.reverse())
+# print("s_list reverse:", s_list.reverse())

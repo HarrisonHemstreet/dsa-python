@@ -1,7 +1,7 @@
 # contains a head, tail and length property.
 # each node points to another node or null.
 
-class SinglyLinkedList:
+class DoublyLinkedList:
     def __init__(self, head = None, tail = None, length = 0):
         self.head: Node | None = head
         self.tail: Node | None = tail
@@ -122,14 +122,6 @@ class SinglyLinkedList:
         accu = prev
         self.head = accu
         return prev
-
-class Node:
-    def __init__(self, val):
-        self.val: int | None = val
-        self.next: Node | None = None
-
-    def __str__(self):
-        return f"Node(val: {self.val}, next: {self.next})"
 
 s_list = SinglyLinkedList()
 s_list.push(1)

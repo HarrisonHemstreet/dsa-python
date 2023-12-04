@@ -1,14 +1,32 @@
 # contains a head, tail and length property.
 # each node points to another node or null.
+class Node:
+    def __init__(self, val, next = None, prev = None):
+        self.val: int = val
+        self.next: Node | None = next
+        self.prev: Node | None = prev
 
-class SinglyLinkedList:
+    def __str__(self):
+        return (f"""
+            Node(
+                val: {self.val}, next: {self.next}
+)
+        """)
+        # return (f"""
+        #     Node(
+        #         val: {self.val}, prev: {self.prev}
+        #     )
+        # """)
+
+class DoublyLinkedList:
     def __init__(self, head = None, tail = None, length = 0):
         self.head: Node | None = head
         self.tail: Node | None = tail
         self.length: int = length
 
     def __str__(self):
-        return f"SinglyLinkedList: {self.head}"
+        return f"DoublyLinkedList next: {self.head}"
+        # return f"DoublyLinkedList prev: {self.tail}"
 
     # O(1)
     def push(self, val: int):
@@ -19,9 +37,10 @@ class SinglyLinkedList:
             self.tail = new_node
         elif self.tail is not None:
             self.tail.next = new_node
+            new_node.prev = self.tail
             self.tail = new_node
         self.length += 1
-        return self.head
+        return self
 
     def get_len(self):
         return self.length
@@ -49,6 +68,8 @@ class SinglyLinkedList:
 
     # O(1)
     def shift(self, val: int):
+        if self.head == None:
+            return "LIST IS EMPTY!"
         new_node = Node(val)
         new_node.next = self.head
         self.head = new_node
@@ -123,32 +144,28 @@ class SinglyLinkedList:
         self.head = accu
         return prev
 
-class Node:
-    def __init__(self, val):
-        self.val: int | None = val
-        self.next: Node | None = None
-
-    def __str__(self):
-        return f"Node(val: {self.val}, next: {self.next})"
-
-s_list = SinglyLinkedList()
-s_list.push(1)
-s_list.push(2)
-s_list.push(3)
-s_list.push(4)
-s_list.push(5)
-s_list.push(6)
-s_list.push(7)
-s_list.push(8)
-print("find:", s_list.find(8))
-print("poped:", s_list.pop())
-print("find:", s_list.find(8))
+d_list = DoublyLinkedList()
+d_list.push(1)
+d_list.push(2)
+d_list.push(3)
+d_list.push(4)
+d_list.push(5)
+d_list.push(6)
+d_list.push(7)
+d_list.push(8)
+print("d_list.head", d_list.head)
+print("d_list.tail", d_list.tail)
+print("d_list.length", d_list.length)
+print("find:", d_list.find(8))
+print("poped:", d_list.pop())
+print("find:", d_list.find(8))
 print("shift:", s_list.shift(0))
 print("unshift:", s_list.unshift())
-print(s_list.get_len())
-print("get:", s_list.get(4))
-print("set:", s_list.set(100, 4))
-print("insert:", s_list.insert(200, 5))
-print("remove:", s_list.remove(5))
-print("s_list:", s_list)
-print("s_list reverse:", s_list.reverse())
+print(d_list.get_len())
+# print("get:", s_list.get(4))
+# print("set:", s_list.set(100, 4))
+# print("insert:", s_list.insert(200, 5))
+# print("remove:", s_list.remove(5))
+# print("d_list:", d_list.print_list())
+print("d_list:", d_list)
+# print("s_list reverse:", s_list.reverse())
