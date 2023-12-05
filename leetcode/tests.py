@@ -2,12 +2,14 @@ import unittest
 from two_sum import TwoSum
 from palindrome_number import PalindromeNumber
 from roman_to_int import RomanToInt
+from longest_common_prefix import LongestCommonPrefix
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
         self.two_sum = TwoSum()
         self.palindrome_number = PalindromeNumber()
         self.roman_to_int = RomanToInt()
+        self.longest_common_prefix = LongestCommonPrefix()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -23,6 +25,12 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.roman_to_int.run("III"), 3)
         self.assertEqual(self.roman_to_int.run("LVIII"), 58)
         self.assertEqual(self.roman_to_int.run("MCMXCIV"), 1994)
+    
+    def test_longest_common_prefix(self):
+        self.assertEqual(self.longest_common_prefix.run(["flower","flow","flight"]), "fl")
+        self.assertEqual(self.longest_common_prefix.run(["dog","racecar","car"]), "")
+        self.assertEqual(self.longest_common_prefix.run(["tom","tooth","toy"]), "to")
+        self.assertEqual(self.longest_common_prefix.run(["cir","car"]), "c")
 
 if __name__ == '__main__':
     unittest.main()

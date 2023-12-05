@@ -18,8 +18,6 @@ class RomanToInt:
                 res -= rom_nums[num]
             else:
                 res += rom_nums[num]
-            print("curr_num:", rom_nums[num])
-            print("res:", res)
             prev_num = rom_nums[num]
         return res
 
