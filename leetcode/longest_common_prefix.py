@@ -2,31 +2,18 @@ from typing import List
 
 class LongestCommonPrefix:
     def run(self, strs: List[str]) -> str:
-        l_strs = len(strs)
-
-        if l_strs == 1:
-            return strs[0]
-        elif l_strs == 0:
-            return ""
-
+        strs.sort()
         first: str = strs[0]
-        l_first: int = len(first)
+        last: str = strs[-1]
         longest: int = 0
-        l_longest: List[int] = []
 
-        for w in strs[1:]:
-            for k, char in enumerate(w):
-                if k > l_first - 1:
-                    break
-                
-                if char == first[k]:
-                    longest += 1
-                else:
-                    break
-            l_longest.append(longest)
-            longest = 0
+        for i in range(len(first)):
+            if first[i] == last[i]:
+                longest += 1
+            else:
+                break
 
-        return first[0:min(l_longest)]
+        return first[0:longest]
 
 """
 Write a function to find the longest common prefix string amongst an array of strings.
