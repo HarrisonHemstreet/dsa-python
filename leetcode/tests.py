@@ -7,6 +7,8 @@ from valid_parens import ValidParens
 from remove_duplicates import RemoveDups
 from remove_element import RemoveElement
 from first_occurrence import FirstOccurrence
+from search_insert import SearchInsert
+from length_of_last_word import LengthLastWord
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -18,6 +20,8 @@ class TestSolution(unittest.TestCase):
         self.remove_dups = RemoveDups()
         self.remove_element = RemoveElement()
         self.first_occurrence = FirstOccurrence()
+        self.search_insert = SearchInsert()
+        self.length_last_word = LengthLastWord()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -61,6 +65,19 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.first_occurrence.run("bear", "ear"), 1)
         self.assertEqual(self.first_occurrence.run("ted", "ed"), 1)
         self.assertEqual(self.first_occurrence.run("bear eat bois", "aoeu"), -1)
+    
+    def test_search_insert(self):
+        self.assertEqual(self.search_insert.run([1,3,5,6], 5), 2)
+        self.assertEqual(self.search_insert.run([1,3,5,6], 2), 1)
+        self.assertEqual(self.search_insert.run([1,3,5,6], 7), 4)
+        self.assertEqual(self.search_insert.run([1], 0), 0)
+        self.assertEqual(self.search_insert.run([1], 1), 0)
+        self.assertEqual(self.search_insert.run([1,3], 2), 1)
+    
+    def test_length_last_word(self):
+        self.assertEqual(self.length_last_word.run("Hello World"), 5)
+        self.assertEqual(self.length_last_word.run("   fly me   to   the moon  "), 4)
+        self.assertEqual(self.length_last_word.run("luffy is still joyboy"), 6)
 
 if __name__ == '__main__':
     unittest.main()
