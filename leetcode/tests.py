@@ -6,6 +6,7 @@ from longest_common_prefix import LongestCommonPrefix
 from valid_parens import ValidParens
 from remove_duplicates import RemoveDups
 from remove_element import RemoveElement
+from first_occurrence import FirstOccurrence
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -16,6 +17,7 @@ class TestSolution(unittest.TestCase):
         self.valid_parens = ValidParens()
         self.remove_dups = RemoveDups()
         self.remove_element = RemoveElement()
+        self.first_occurrence = FirstOccurrence()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -54,6 +56,11 @@ class TestSolution(unittest.TestCase):
     def test_remove_element(self):
         self.assertEqual(self.remove_element.run([3,2,2,3], 3), 2)
         self.assertEqual(self.remove_element.run([0,1,2,2,3,0,4,2], 2), 5)
+    
+    def test_first_occurrence(self):
+        self.assertEqual(self.first_occurrence.run("bear", "ear"), 1)
+        self.assertEqual(self.first_occurrence.run("ted", "ed"), 1)
+        self.assertEqual(self.first_occurrence.run("bear eat bois", "aoeu"), -1)
 
 if __name__ == '__main__':
     unittest.main()
