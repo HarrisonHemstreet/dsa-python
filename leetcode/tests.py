@@ -5,6 +5,7 @@ from roman_to_int import RomanToInt
 from longest_common_prefix import LongestCommonPrefix
 from valid_parens import ValidParens
 from remove_duplicates import RemoveDups
+from remove_element import RemoveElement
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -14,6 +15,7 @@ class TestSolution(unittest.TestCase):
         self.longest_common_prefix = LongestCommonPrefix()
         self.valid_parens = ValidParens()
         self.remove_dups = RemoveDups()
+        self.remove_element = RemoveElement()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -48,6 +50,10 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.remove_dups.run([1,2,2,3,4,4]), 4)
         self.assertEqual(self.remove_dups.run([1,2]), 2)
         self.assertEqual(self.remove_dups.run([0,0,1,1,1,2,2,3,3,4]), 5)
+    
+    def test_remove_element(self):
+        self.assertEqual(self.remove_element.run([3,2,2,3], 3), 2)
+        self.assertEqual(self.remove_element.run([0,1,2,2,3,0,4,2], 2), 5)
 
 if __name__ == '__main__':
     unittest.main()
