@@ -16,7 +16,7 @@ class ValidParens:
                 stack.append(bracket)
             elif len(stack) == 0 or bracket != pairs[stack.pop()]:
                 return False
-        
+
         return len(stack) == 0
 
 class TestSolution(unittest.TestCase):
