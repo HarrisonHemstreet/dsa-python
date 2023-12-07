@@ -13,6 +13,7 @@ from plus_one import PlusOne
 from add_binary import AddBinary
 from largest_odd_num_in_str import LargestOddNumInStr
 from sqrt import Sqrt
+from climbing_stairs import ClimbingStairs
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -30,6 +31,7 @@ class TestSolution(unittest.TestCase):
         self.add_binary = AddBinary()
         self.largest_odd_num_in_str = LargestOddNumInStr()
         self.sqrt = Sqrt()
+        self.climbing_stairs = ClimbingStairs()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -106,6 +108,10 @@ class TestSolution(unittest.TestCase):
     def test_sqrt(self):
         self.assertEqual(self.sqrt.run(4), 2)
         self.assertEqual(self.sqrt.run(8), 2)
+    
+    def test_climbing_stairs(self):
+        self.assertEqual(self.climbing_stairs.run(2), 2)
+        self.assertEqual(self.climbing_stairs.run(3), 3)
 
 if __name__ == '__main__':
     unittest.main()
