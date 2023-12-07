@@ -9,6 +9,7 @@ from remove_element import RemoveElement
 from first_occurrence import FirstOccurrence
 from search_insert import SearchInsert
 from length_of_last_word import LengthLastWord
+from plus_one import PlusOne
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -22,6 +23,7 @@ class TestSolution(unittest.TestCase):
         self.first_occurrence = FirstOccurrence()
         self.search_insert = SearchInsert()
         self.length_last_word = LengthLastWord()
+        self.plus_one = PlusOne()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -78,6 +80,12 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.length_last_word.run("Hello World"), 5)
         self.assertEqual(self.length_last_word.run("   fly me   to   the moon  "), 4)
         self.assertEqual(self.length_last_word.run("luffy is still joyboy"), 6)
+    
+    def test_plus_one(self):
+        self.assertEqual(self.plus_one.run([1,2,3]), [1,2,4])
+        self.assertEqual(self.plus_one.run([4,3,2,1]), [4,3,2,2])
+        self.assertEqual(self.plus_one.run([9]), [1,0])
+        self.assertEqual(self.plus_one.run([1,0]), [1,1])
 
 if __name__ == '__main__':
     unittest.main()

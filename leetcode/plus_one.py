@@ -1,8 +1,37 @@
+import unittest
 from typing import List
 
 class PlusOne:
     def run(self, nums: List[int]) -> List[int]:
+        total: int = 0
+        multiplier: int = 1
+        i: int = len(nums) - 1
+        while i >= 0:
+            if total >= 1:
+                multiplier *= 10
+            else:
+                total += 1
+            total = total + (multiplier * nums[i])
+            i -= 1
 
+        total_to_list: List[int] = list(str(total))
+        res: List[int] = []
+        for num in total_to_list:
+            res.append(int(num))
+        return res
+
+class TestCode(unittest.TestCase):
+    def setUp(self):
+        self.plus_one = PlusOne()
+
+    def test_plus_one(self):
+        self.assertEqual(self.plus_one.run([1,2,3]), [1,2,4])
+        self.assertEqual(self.plus_one.run([4,3,2,1]), [4,3,2,2])
+        self.assertEqual(self.plus_one.run([9]), [1,0])
+        self.assertEqual(self.plus_one.run([1,0]), [1,1])
+
+if __name__ == "__main__":
+    unittest.main()
 
 """
 66. Plus One
@@ -13,8 +42,6 @@ Companies
 You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's.
 
 Increment the large integer by one and return the resulting array of digits.
-
- 
 
 Example 1:
 
