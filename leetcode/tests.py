@@ -10,6 +10,7 @@ from first_occurrence import FirstOccurrence
 from search_insert import SearchInsert
 from length_of_last_word import LengthLastWord
 from plus_one import PlusOne
+from add_binary import AddBinary
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -24,6 +25,7 @@ class TestSolution(unittest.TestCase):
         self.search_insert = SearchInsert()
         self.length_last_word = LengthLastWord()
         self.plus_one = PlusOne()
+        self.add_binary = AddBinary()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -86,6 +88,10 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.plus_one.run([4,3,2,1]), [4,3,2,2])
         self.assertEqual(self.plus_one.run([9]), [1,0])
         self.assertEqual(self.plus_one.run([1,0]), [1,1])
+    
+    def test_add_binary(self):
+        self.assertEqual(self.add_binary.run("11", "1"), "100")
+        self.assertEqual(self.add_binary.run("1010", "1011"), "10101")
 
 if __name__ == '__main__':
     unittest.main()
