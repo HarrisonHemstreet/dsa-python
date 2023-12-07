@@ -1,2 +1,0 @@
-class RomanToInt:
-    def run()
