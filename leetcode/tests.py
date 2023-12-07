@@ -12,6 +12,7 @@ from length_of_last_word import LengthLastWord
 from plus_one import PlusOne
 from add_binary import AddBinary
 from largest_odd_num_in_str import LargestOddNumInStr
+from sqrt import Sqrt
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -28,6 +29,7 @@ class TestSolution(unittest.TestCase):
         self.plus_one = PlusOne()
         self.add_binary = AddBinary()
         self.largest_odd_num_in_str = LargestOddNumInStr()
+        self.sqrt = Sqrt()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -100,6 +102,10 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.largest_odd_num_in_str.run("4206"), "")
         self.assertEqual(self.largest_odd_num_in_str.run("35427"), "35427")
         self.assertEqual(self.largest_odd_num_in_str.run("10133890"), "1013389")
+    
+    def test_sqrt(self):
+        self.assertEqual(self.sqrt.run(4), 2)
+        self.assertEqual(self.sqrt.run(8), 2)
 
 if __name__ == '__main__':
     unittest.main()
