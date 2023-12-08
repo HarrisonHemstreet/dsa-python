@@ -63,3 +63,28 @@ class Solution(object):
                 result[idx] = (idx*(i+1)-prefix[i+1]) + ((prefix[len(idxs)]-prefix[i])-idx*(len(idxs)-i))
         return result
 
+# 08 December 2023
+
+# Time:  O(n)
+# Space: O(1)
+
+import collections
+import string
+
+class Solution(object):
+    def minDeletions(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        count = collections.Counter(s)
+        result = 0
+        lookup = set()
+        for c in string.ascii_lowercase:
+            for i in reversed(xrange(1, count[c]+1)):
+                if i not in lookup:
+                    lookup.add(i)
+                    break
+                result += 1
+        return result
+
