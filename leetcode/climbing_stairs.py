@@ -1,9 +1,21 @@
 import unittest
-from typing import Dict
-
-class ClimbingStairs():
+class ClimbingStairs:
     def run(self, n: int) -> int:
-        memo: Dict[int: int]
+        memo = {}
+        def dp(total):
+            if total == n:
+                return 1
+            
+            if total > n:
+                return 0
+
+            if total in memo:
+                return memo[total]
+
+            memo[total] = dp(total + 1) + dp(total + 2)
+            return memo[total]
+
+        return dp(0)
 
 class TestCode(unittest.TestCase):
     def setUp(self):
