@@ -2,23 +2,23 @@ import unittest
 from LeetcodeClasses import ListNode
 
 class DeleteDups():
-    def run(self, head: ListNode | None) -> ListNode | None:
-        head_pointer = head
-        head2 = head
-        accu: set[int] = set()
-        # accu.add(head.val)
-        while head.next is not None:
-            print("head.val:", head.val)
-            if head.val not in accu:
-                accu.add(head.val)
-                # continue
-            head = head.next
+    def delete_dups(self, head: ListNode | None) -> ListNode | None:
+        curr = head
+        while curr and curr.next:
+            if curr.val == curr.next.val:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
 
-        while head2.next is not None:
-            print("head2.val:", head2.val)
-            head2 = head.val
+        return head
 
-        return head_pointer
+    def LL_to_list(self, node: ListNode) -> list[int]:
+        node: ListNode = self.delete_dups(node)
+        res: list[int] = []
+        while node is not None:
+            res.append(node.val)
+            node = node.next
+        return res
 
 class TestDeleteDups(unittest.TestCase):
     def setUp(self):
@@ -55,8 +55,16 @@ class TestDeleteDups(unittest.TestCase):
         L2_tail.next = ListNode(3)
         L2_tail = L2_tail.next
 
-        self.assertEqual(self.delete_dups.run(L1), L1_res)
-        self.assertEqual(self.delete_dups.run(L2), L2_res)
+        L3: ListNode = ListNode(1)
+        L3_tail: ListNode = L3
+        L3_tail.next = ListNode(1)
+        L3_tail = L3_tail.next
+        L3_tail.next = ListNode(1)
+        L3_tail = L3_tail.next
+
+        self.assertEqual(self.delete_dups.LL_to_list(L1), [1,2])
+        self.assertEqual(self.delete_dups.LL_to_list(L2), [1,2,3])
+        self.assertEqual(self.delete_dups.LL_to_list(L3), [1])
 
 if __name__ == "__main__":
     unittest.main()

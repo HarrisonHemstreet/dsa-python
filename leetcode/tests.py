@@ -14,6 +14,8 @@ from add_binary import AddBinary
 from largest_odd_num_in_str import LargestOddNumInStr
 from sqrt import Sqrt
 from climbing_stairs import ClimbingStairs
+from delete_dups import DeleteDups
+from LeetcodeClasses import ListNode
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -32,6 +34,7 @@ class TestSolution(unittest.TestCase):
         self.largest_odd_num_in_str = LargestOddNumInStr()
         self.sqrt = Sqrt()
         self.climbing_stairs = ClimbingStairs()
+        self.delete_dups = DeleteDups()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -112,6 +115,48 @@ class TestSolution(unittest.TestCase):
     def test_climbing_stairs(self):
         self.assertEqual(self.climbing_stairs.run(2), 2)
         self.assertEqual(self.climbing_stairs.run(3), 3)
+    
+    def test_delete_dups(self):
+        L1: ListNode = ListNode(1)
+        L1_tail: ListNode = L1
+        L1_tail.next = ListNode(1)
+        L1_tail = L1_tail.next
+        L1_tail.next = ListNode(2)
+        L1_tail = L1_tail.next
+
+        L1_res: ListNode = ListNode(1)
+        L1_tail_res: ListNode = L1_res
+        L1_tail_res.next = ListNode(2)
+        L1_tail_res = L1_tail_res.next
+
+        L2: ListNode = ListNode(1)
+        L2_tail: ListNode = L2
+        L2_tail.next = ListNode(1)
+        L2_tail = L2_tail.next
+        L2_tail.next = ListNode(1)
+        L2_tail = L2_tail.next
+        L2_tail.next = ListNode(2)
+        L2_tail = L2_tail.next
+        L2_tail.next = ListNode(3)
+        L2_tail = L2_tail.next
+
+        L2: ListNode = ListNode(1)
+        L2_tail: ListNode = L2
+        L2_tail.next = ListNode(2)
+        L2_tail = L2_tail.next
+        L2_tail.next = ListNode(3)
+        L2_tail = L2_tail.next
+
+        L3: ListNode = ListNode(1)
+        L3_tail: ListNode = L3
+        L3_tail.next = ListNode(1)
+        L3_tail = L3_tail.next
+        L3_tail.next = ListNode(1)
+        L3_tail = L3_tail.next
+
+        self.assertEqual(self.delete_dups.LL_to_list(L1), [1,2])
+        self.assertEqual(self.delete_dups.LL_to_list(L2), [1,2,3])
+        self.assertEqual(self.delete_dups.LL_to_list(L3), [1])
 
 if __name__ == '__main__':
     unittest.main()
