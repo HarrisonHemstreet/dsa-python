@@ -102,6 +102,34 @@ tree8 = TreeNode(1)
 tree8.left = TreeNode(None)
 tree8.right = TreeNode(1)
 
+"""
+      1
+   /    \
+  2      2
+ / \    / \
+3   4  4   3
+"""
+tree9 = TreeNode(1)
+tree9.left = TreeNode(2)
+tree9.right = TreeNode(2)
+tree9.left.left = TreeNode(3)
+tree9.left.right = TreeNode(4)
+tree9.right.left = TreeNode(4)
+tree9.right.right = TreeNode(3)
+
+"""
+    1
+   /  \
+  2    2
+  \     \
+   3     3
+"""
+tree10 = TreeNode(1)
+tree10.left = TreeNode(2)
+tree10.right = TreeNode(2)
+tree10.left.right = TreeNode(3)
+tree10.right.right = TreeNode(3)
+
 # My modified Leetcode version:
 # class ListNode:
 #     def __init__(self, val = 0, next = None):
