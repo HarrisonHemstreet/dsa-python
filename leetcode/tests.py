@@ -15,10 +15,11 @@ from largest_odd_num_in_str import LargestOddNumInStr
 from sqrt import Sqrt
 from climbing_stairs import ClimbingStairs
 from delete_dups import DeleteDups
-from LeetcodeClasses import ListNode
+from LeetcodeClasses import ListNode, tree1, tree2, tree3, tree7, tree8
 from element_25_percent_of_array import TwentyFivePercentOfArray
 from merge_sorted_array import MergeSortedArray
 from max_product_two_elms_in_list import MaxProduct
+from same_tree import SameTree
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -41,6 +42,7 @@ class TestSolution(unittest.TestCase):
         self.twenty_five_percent = TwentyFivePercentOfArray()
         self.merge_sorted_array = MergeSortedArray()
         self.max_prod = MaxProduct()
+        self.same_tree = SameTree()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -177,6 +179,12 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.max_prod.run([3,4,5,2]), 12)
         self.assertEqual(self.max_prod.run([1,5,4,5]), 16)
         self.assertEqual(self.max_prod.run([3,7]), 12)
+    
+    def test_same_tree(self):
+        self.assertEqual(self.same_tree.run(tree1, tree1), True)
+        self.assertEqual(self.same_tree.run(tree1, tree2), False)
+        self.assertEqual(self.same_tree.run(tree2, tree3), False)
+        self.assertEqual(self.same_tree.run(tree7, tree8), False)
 
 if __name__ == '__main__':
     unittest.main()
