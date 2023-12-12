@@ -18,6 +18,7 @@ from delete_dups import DeleteDups
 from LeetcodeClasses import ListNode
 from element_25_percent_of_array import TwentyFivePercentOfArray
 from merge_sorted_array import MergeSortedArray
+from max_product_two_elms_in_list import MaxProduct
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -39,6 +40,7 @@ class TestSolution(unittest.TestCase):
         self.delete_dups = DeleteDups()
         self.twenty_five_percent = TwentyFivePercentOfArray()
         self.merge_sorted_array = MergeSortedArray()
+        self.max_prod = MaxProduct()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -170,6 +172,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.merge_sorted_array.run([1,2,3,0,0,0], 3, [2,5,6], 3), [1,2,2,3,5,6])
         self.assertEqual(self.merge_sorted_array.run([1], 1, [], 0), [1])
         self.assertEqual(self.merge_sorted_array.run([0], 0, [1], 1), [1])
+    
+    def test_max_prod(self):
+        self.assertEqual(self.max_prod.run([3,4,5,2]), 12)
+        self.assertEqual(self.max_prod.run([1,5,4,5]), 16)
+        self.assertEqual(self.max_prod.run([3,7]), 12)
 
 if __name__ == '__main__':
     unittest.main()
