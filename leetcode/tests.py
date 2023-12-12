@@ -16,6 +16,7 @@ from sqrt import Sqrt
 from climbing_stairs import ClimbingStairs
 from delete_dups import DeleteDups
 from LeetcodeClasses import ListNode
+from element_25_percent_of_array import TwentyFivePercentOfArray
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -35,6 +36,7 @@ class TestSolution(unittest.TestCase):
         self.sqrt = Sqrt()
         self.climbing_stairs = ClimbingStairs()
         self.delete_dups = DeleteDups()
+        self.twenty_five_percent = TwentyFivePercentOfArray()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -157,6 +159,10 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.delete_dups.LL_to_list(L1), [1,2])
         self.assertEqual(self.delete_dups.LL_to_list(L2), [1,2,3])
         self.assertEqual(self.delete_dups.LL_to_list(L3), [1])
+    
+    def test_twenty_five_percent(self):
+        self.assertEqual(self.twenty_five_percent.run([1,2,2,6,6,6,6,7,10]), 6)
+        self.assertEqual(self.twenty_five_percent.run([1,1]), 1)
 
 if __name__ == '__main__':
     unittest.main()
