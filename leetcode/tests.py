@@ -21,6 +21,7 @@ from merge_sorted_array import MergeSortedArray
 from max_product_two_elms_in_list import MaxProduct
 from same_tree import SameTree
 from symmetric_tree import SymmetricTree
+from max_prod_two_pairs import MaxProdTwoPairs
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -45,6 +46,7 @@ class TestSolution(unittest.TestCase):
         self.max_prod = MaxProduct()
         self.same_tree = SameTree()
         self.symmetric_tree = SymmetricTree()
+        self.max_prod_two_pairs = MaxProdTwoPairs()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -191,6 +193,10 @@ class TestSolution(unittest.TestCase):
     def test_symmetric_tree(self):
         self.assertEqual(self.symmetric_tree.run(tree9), True)
         self.assertEqual(self.symmetric_tree.run(tree10), False)
+    
+    def test_max_prod_two_pairs(self):
+        self.assertEqual(self.max_prod_two_pairs.run([5,6,2,7,4]), 34)
+        self.assertEqual(self.max_prod_two_pairs.run([4,2,5,9,7,4,8]), 64)
 
 if __name__ == '__main__':
     unittest.main()
