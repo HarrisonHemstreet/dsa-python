@@ -23,6 +23,7 @@ from same_tree import SameTree
 from symmetric_tree import SymmetricTree
 from max_prod_two_pairs import MaxProdTwoPairs
 from image_smoother import ImageSmoother
+from buy_two_chocolates import BuyTwoChocolates
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -49,6 +50,7 @@ class TestSolution(unittest.TestCase):
         self.symmetric_tree = SymmetricTree()
         self.max_prod_two_pairs = MaxProdTwoPairs()
         self.image_smoother = ImageSmoother()
+        self.buy_two_chocolates = BuyTwoChocolates()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -203,6 +205,10 @@ class TestSolution(unittest.TestCase):
     def test_image_smoother(self):
         self.assertEqual(self.image_smoother.run([[1,1,1],[1,0,1],[1,1,1]]), [[0,0,0],[0,0,0],[0,0,0]])
         self.assertEqual(self.image_smoother.run([[100,200,100],[200,50,200],[100,200,100]]), [[137,141,137],[141,138,141],[137,141,137]])
+    
+    def test_buy_two_chocolates(self):
+        self.assertEqual(self.buy_two_chocolates.run([1,2,2], 3), 0)
+        self.assertEqual(self.buy_two_chocolates.run([3,2,3], 3), 3)
 
 if __name__ == '__main__':
     unittest.main()
