@@ -3,84 +3,38 @@ from math import floor
 
 class ImageSmoother():
     def run(self, img: list[list[int]]) -> list[list[int]]:
-        """
-        1. get every group of nums
-        2. output the average of every group of nums
+        # Get the dimensions of the image matrix
+        rows, cols = len(img), len(img[0])
         
-        square: 3x3:
-        # C = img[i][k]
-        """
-        rows_len: int = len(img)
-        cols_len: int = len(img[0])
+        # Define a helper function to calculate the average value for a pixel
+        def average_value(r, c):
+            total, count = 0, 0
 
-        i: int = rows_len
-        k: int = cols_len
+            # Define the boundaries for the neighboring pixels
+            top = max(0, r - 1)
+            bottom = min(rows, r + 2)
+            left = max(0, c - 1)
+            right = min(cols, c + 2)
 
-        while i >= 0:
-            i -= 1
+            # Iterate over the neighboring pixels and calculate the sum and count
+            for row in range(top, bottom):
+                for col in range(left, right):
+                    total += img[row][col]
+                    count += 1
 
-            while k >= 0:
-                k -= 1
+            # Calculate and return the average value for the pixel
+            return total // count
 
-                TL: int | None
-                TM: int | None
-                TR: int | None
-                ML: int | None
-                MM: int | None
-                MR: int | None
-                BL: int | None
-                BM: int | None
-                BR: int | None
-
-                try:
-                    TL = img[i - 1][k - 1]
-                except IndexError:
-                    TL = None
-                try:
-                    TM = img[i - 1][k]
-                except IndexError:
-                    TM = None
-                try:
-                    TR = img[i - 1][k + 1]
-                except IndexError:
-                    TR = None
-                try:
-                    ML = img[i][k - 1]
-                except IndexError:
-                    ML = None
-                try:
-                    MM = img[i][k]
-                except IndexError:
-                    MM = None
-                try:
-                    MR = img[i][k + 1]
-                except IndexError:
-                    MR = None
-                try:
-                    BL = img[i + 1][k - 1]
-                except IndexError:
-                    BL = None
-                try:
-                    BM = img[i + 1][k]
-                except IndexError:
-                    BM = None
-                try:
-                    BR = img[i + 1][k + 1]
-                except IndexError:
-                    BR = None
-
-                grid = [TL, TM, TR, ML, MM, MR, BL, BM, BR]
-                to_smooth = [num for num in grid if num is not None]
-                smooth_len: int = len(to_smooth)
-                img[i][k] = floor(sum(to_smooth) / smooth_len)
-
+        # Apply the average function to each pixel in the image matrix
+        return [[average_value(r, c) for c in range(cols)] for r in range(rows)]
 
 class TestCode(unittest.TestCase):
     def setUp(self):
         self.image_smoother = ImageSmoother()
     
     def test_image_smoother(self):
-        self.assertEqual(self.image_smoother.run())
+        self.assertEqual(self.image_smoother.run([[1,1,1],[1,0,1],[1,1,1]]), [[0,0,0],[0,0,0],[0,0,0]])
+        self.assertEqual(self.image_smoother.run([[100,200,100],[200,50,200],[100,200,100]]), [[137,141,137],[141,138,141],[137,141,137]])
 
 if __name__ == "__main__":
     unittest.main()
