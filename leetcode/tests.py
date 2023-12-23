@@ -15,7 +15,7 @@ from largest_odd_num_in_str import LargestOddNumInStr
 from sqrt import Sqrt
 from climbing_stairs import ClimbingStairs
 from delete_dups import DeleteDups
-from LeetcodeClasses import ListNode, tree1, tree2, tree3, tree7, tree8, tree9, tree10
+from nodes import ListNode, tree1, tree2, tree3, tree7, tree8, tree9, tree10
 from element_25_percent_of_array import TwentyFivePercentOfArray
 from merge_sorted_array import MergeSortedArray
 from max_product_two_elms_in_list import MaxProduct
@@ -24,6 +24,7 @@ from symmetric_tree import SymmetricTree
 from max_prod_two_pairs import MaxProdTwoPairs
 from image_smoother import ImageSmoother
 from buy_two_chocolates import BuyTwoChocolates
+from path_crossing import PathCrossing
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -51,6 +52,7 @@ class TestSolution(unittest.TestCase):
         self.max_prod_two_pairs = MaxProdTwoPairs()
         self.image_smoother = ImageSmoother()
         self.buy_two_chocolates = BuyTwoChocolates()
+        self.path_crossing = PathCrossing()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -209,6 +211,10 @@ class TestSolution(unittest.TestCase):
     def test_buy_two_chocolates(self):
         self.assertEqual(self.buy_two_chocolates.run([1,2,2], 3), 0)
         self.assertEqual(self.buy_two_chocolates.run([3,2,3], 3), 3)
+    
+    def test_path_crossing(self):
+        self.assertEqual(self.path_crossing.run("NES"), False)
+        self.assertEqual(self.path_crossing.run("NESWW"), True)
 
 if __name__ == '__main__':
     unittest.main()

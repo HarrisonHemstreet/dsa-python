@@ -1,4 +1,4 @@
-from LeetcodeClasses import TreeNode, tree9, tree10
+from nodes import TreeNode, tree9, tree10
 import unittest
 
 class SymmetricTree():

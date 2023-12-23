@@ -1,5 +1,5 @@
 import unittest
-from LeetcodeClasses import TreeNode, tree1, tree2, tree3, tree7, tree8
+from nodes import TreeNode, tree1, tree2, tree3, tree7, tree8
 
 class SameTree():
     def run(self, p: TreeNode | None, q: TreeNode | None) -> bool:

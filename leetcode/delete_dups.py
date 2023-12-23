@@ -1,5 +1,5 @@
 import unittest
-from LeetcodeClasses import ListNode
+from nodes import ListNode
 
 class DeleteDups():
     def delete_dups(self, head: ListNode | None) -> ListNode | None:
