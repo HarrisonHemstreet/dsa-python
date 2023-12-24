@@ -25,6 +25,7 @@ from max_prod_two_pairs import MaxProdTwoPairs
 from image_smoother import ImageSmoother
 from buy_two_chocolates import BuyTwoChocolates
 from path_crossing import PathCrossing
+from min_changes import MinChanges
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -53,6 +54,7 @@ class TestSolution(unittest.TestCase):
         self.image_smoother = ImageSmoother()
         self.buy_two_chocolates = BuyTwoChocolates()
         self.path_crossing = PathCrossing()
+        self.min_changes = MinChanges()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -215,6 +217,11 @@ class TestSolution(unittest.TestCase):
     def test_path_crossing(self):
         self.assertEqual(self.path_crossing.run("NES"), False)
         self.assertEqual(self.path_crossing.run("NESWW"), True)
+    
+    def test_min_changes(self):
+        self.assertEqual(self.min_changes.run("0100"),1)
+        self.assertEqual(self.min_changes.run("10"),0)
+        self.assertEqual(self.min_changes.run("1111"),2)
 
 if __name__ == '__main__':
     unittest.main()
