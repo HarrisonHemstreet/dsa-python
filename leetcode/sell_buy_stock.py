@@ -8,14 +8,13 @@ class BuySellStock():
         most_profit: int = 0
 
         for i in range(len_prices - 1):
-            print("---------------")
-            print("left:", left)
-            print("right:", right)
-            if left >= right:
+            if left > right:
                 left = prices[i]
                 right = prices[i + 1]
             else:
-                most_profit = right - left
+                if right - left > most_profit:
+                    most_profit = right - left
+                right = prices[i + 1]
         return most_profit
 
 class TestBuySellStock(unittest.TestCase):
