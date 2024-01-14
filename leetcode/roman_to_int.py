@@ -1,3 +1,5 @@
+import unittest
+
 class RomanToInt:
     def run(self, s : str) -> int:
         l_s = list(s)
@@ -20,6 +22,18 @@ class RomanToInt:
                 res += rom_nums[num]
             prev_num = rom_nums[num]
         return res
+
+class TestCode(unittest.TestCase):
+    def setUp(self):
+        self.roman_to_int = RomanToInt()
+
+    def test_roman_to_int(self):
+        self.assertEqual(self.roman_to_int.run("III"), 3)
+        self.assertEqual(self.roman_to_int.run("LVIII"), 58)
+        self.assertEqual(self.roman_to_int.run("MCMXCIV"), 1994)
+
+if __name__ == "__main__":
+    unittest.main()
 
 """
 Input: s = "MCMXCIV"
