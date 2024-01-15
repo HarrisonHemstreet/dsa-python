@@ -27,7 +27,8 @@ from buy_two_chocolates import BuyTwoChocolates
 from path_crossing import PathCrossing
 from min_changes import MinChanges
 from gcd_of_strings import GCDOfStrings
-from merge_alternately import MergeAlternately
+from merge_strings_alt import MergeAlternately
+from kids_with_candies import KidsWithCandies
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -59,6 +60,7 @@ class TestSolution(unittest.TestCase):
         self.min_changes = MinChanges()
         self.gcd_of_strings = GCDOfStrings()
         self.merge_alternately = MergeAlternately()
+        self.kids_with_candies = KidsWithCandies()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -236,6 +238,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.merge_alternately.run("abc", "pqr"), "apbqcr")
         self.assertEqual(self.merge_alternately.run("ab", "pqrs"), "apbqrs")
         self.assertEqual(self.merge_alternately.run("abcd", "pq"), "apbqcd")
+
+    def test_kids_with_candies(self):
+        self.assertEqual(self.kids_with_candies.run([2,3,5,1,3], 3), [True,True,True,False,True])
+        self.assertEqual(self.kids_with_candies.run([4,2,1,1,2], 1), [True,False,False,False,False])
+        self.assertEqual(self.kids_with_candies.run([12,1,12], 10), [True,False,True])
 
 if __name__ == '__main__':
     unittest.main()
