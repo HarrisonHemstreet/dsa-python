@@ -26,6 +26,8 @@ from image_smoother import ImageSmoother
 from buy_two_chocolates import BuyTwoChocolates
 from path_crossing import PathCrossing
 from min_changes import MinChanges
+from gcd_of_strings import GCDOfStrings
+from merge_alternately import MergeAlternately
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -55,6 +57,8 @@ class TestSolution(unittest.TestCase):
         self.buy_two_chocolates = BuyTwoChocolates()
         self.path_crossing = PathCrossing()
         self.min_changes = MinChanges()
+        self.gcd_of_strings = GCDOfStrings()
+        self.merge_alternately = MergeAlternately()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -222,6 +226,16 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.min_changes.run("0100"),1)
         self.assertEqual(self.min_changes.run("10"),0)
         self.assertEqual(self.min_changes.run("1111"),2)
+
+    def test_gcd_of_strings(self):
+        self.assertEqual(self.gcd_of_strings.run("ABCABC", "ABC"), "ABC")
+        self.assertEqual(self.gcd_of_strings.run("ABABAB", "ABAB"), "AB")
+        self.assertEqual(self.gcd_of_strings.run("LEET", "CODE"), "")
+
+    def test_merge_alternately(self):
+        self.assertEqual(self.merge_alternately.run("abc", "pqr"), "apbqcr")
+        self.assertEqual(self.merge_alternately.run("ab", "pqrs"), "apbqrs")
+        self.assertEqual(self.merge_alternately.run("abcd", "pq"), "apbqcd")
 
 if __name__ == '__main__':
     unittest.main()
