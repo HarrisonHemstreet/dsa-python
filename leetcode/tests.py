@@ -29,6 +29,7 @@ from min_changes import MinChanges
 from gcd_of_strings import GCDOfStrings
 from merge_strings_alt import MergeAlternately
 from kids_with_candies import KidsWithCandies
+from can_place_flowers import CanPlaceFlowers
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -61,6 +62,7 @@ class TestSolution(unittest.TestCase):
         self.gcd_of_strings = GCDOfStrings()
         self.merge_alternately = MergeAlternately()
         self.kids_with_candies = KidsWithCandies()
+        self.can_place_flowers = CanPlaceFlowers()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -243,6 +245,16 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.kids_with_candies.run([2,3,5,1,3], 3), [True,True,True,False,True])
         self.assertEqual(self.kids_with_candies.run([4,2,1,1,2], 1), [True,False,False,False,False])
         self.assertEqual(self.kids_with_candies.run([12,1,12], 10), [True,False,True])
+
+    def test_can_place_flowers(self):
+        self.assertEqual(self.can_place_flowers.run([1,0,0,0,1], 1), True)
+        self.assertEqual(self.can_place_flowers.run([1,0,0,0,1], 2), False)
+        self.assertEqual(self.can_place_flowers.run([1,0,0,0,0,0,1], 2), True)
+        self.assertEqual(self.can_place_flowers.run([1,0,0,0,0,1], 2), False)
+        self.assertEqual(self.can_place_flowers.run([1,0,1,0,1,0,1], 1), False)
+        self.assertEqual(self.can_place_flowers.run([0,0,1,0,1], 1), True)
+        self.assertEqual(self.can_place_flowers.run([0], 1), True)
+        self.assertEqual(self.can_place_flowers.run([0,0,1,0,0], 1), True)
 
 if __name__ == '__main__':
     unittest.main()
