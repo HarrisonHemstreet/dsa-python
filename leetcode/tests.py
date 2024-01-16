@@ -32,6 +32,7 @@ from kids_with_candies import KidsWithCandies
 from can_place_flowers import CanPlaceFlowers
 from reverse_vowels import ReverseVowels
 from reverse_words import ReverseWords
+from product_except_self import ProductExceptSelf
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -67,6 +68,7 @@ class TestSolution(unittest.TestCase):
         self.can_place_flowers = CanPlaceFlowers()
         self.reverse_vowels = ReverseVowels()
         self.reverse_words = ReverseWords()
+        self.product_except_self = ProductExceptSelf()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -269,6 +271,10 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.reverse_words.run("the sky is blue"), "blue is sky the")
         self.assertEqual(self.reverse_words.run("  hello world  "), "world hello")
         self.assertEqual(self.reverse_words.run("a good   example"), "example good a")
+
+    def test_product_except_self(self):
+        self.assertEqual(self.product_except_self.run([1,2,3,4]), [24,12,8,6])
+        self.assertEqual(self.product_except_self.run([-1,1,0,-3,3]), [0,0,9,0,0])
 
 if __name__ == '__main__':
     unittest.main()
