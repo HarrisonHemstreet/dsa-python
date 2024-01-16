@@ -30,6 +30,7 @@ from gcd_of_strings import GCDOfStrings
 from merge_strings_alt import MergeAlternately
 from kids_with_candies import KidsWithCandies
 from can_place_flowers import CanPlaceFlowers
+from reverse_vowels import ReverseVowels
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -63,6 +64,7 @@ class TestSolution(unittest.TestCase):
         self.merge_alternately = MergeAlternately()
         self.kids_with_candies = KidsWithCandies()
         self.can_place_flowers = CanPlaceFlowers()
+        self.reverse_vowels = ReverseVowels()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -255,6 +257,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.can_place_flowers.run([0,0,1,0,1], 1), True)
         self.assertEqual(self.can_place_flowers.run([0], 1), True)
         self.assertEqual(self.can_place_flowers.run([0,0,1,0,0], 1), True)
+
+    def test_reverse_vowels(self):
+        self.assertEqual(self.reverse_vowels.run("hello"), "holle")
+        self.assertEqual(self.reverse_vowels.run("leetcode"), "leotcede")
+        self.assertEqual(self.reverse_vowels.run("aA"), "Aa")
 
 if __name__ == '__main__':
     unittest.main()
