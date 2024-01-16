@@ -31,6 +31,7 @@ from merge_strings_alt import MergeAlternately
 from kids_with_candies import KidsWithCandies
 from can_place_flowers import CanPlaceFlowers
 from reverse_vowels import ReverseVowels
+from reverse_words import ReverseWords
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -65,6 +66,7 @@ class TestSolution(unittest.TestCase):
         self.kids_with_candies = KidsWithCandies()
         self.can_place_flowers = CanPlaceFlowers()
         self.reverse_vowels = ReverseVowels()
+        self.reverse_words = ReverseWords()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -262,6 +264,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.reverse_vowels.run("hello"), "holle")
         self.assertEqual(self.reverse_vowels.run("leetcode"), "leotcede")
         self.assertEqual(self.reverse_vowels.run("aA"), "Aa")
+
+    def test_reverse_words(self):
+        self.assertEqual(self.reverse_words.run("the sky is blue"), "blue is sky the")
+        self.assertEqual(self.reverse_words.run("  hello world  "), "world hello")
+        self.assertEqual(self.reverse_words.run("a good   example"), "example good a")
 
 if __name__ == '__main__':
     unittest.main()
