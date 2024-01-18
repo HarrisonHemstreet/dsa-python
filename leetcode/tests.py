@@ -33,6 +33,7 @@ from can_place_flowers import CanPlaceFlowers
 from reverse_vowels import ReverseVowels
 from reverse_words import ReverseWords
 from product_except_self import ProductExceptSelf
+from increasing_triplet import IncreasingTriplet
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -69,6 +70,7 @@ class TestSolution(unittest.TestCase):
         self.reverse_vowels = ReverseVowels()
         self.reverse_words = ReverseWords()
         self.product_except_self = ProductExceptSelf()
+        self.increasing_triplet = IncreasingTriplet()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -275,6 +277,13 @@ class TestSolution(unittest.TestCase):
     def test_product_except_self(self):
         self.assertEqual(self.product_except_self.run([1,2,3,4]), [24,12,8,6])
         self.assertEqual(self.product_except_self.run([-1,1,0,-3,3]), [0,0,9,0,0])
+
+    def test_increasing_triplet(self):
+        self.assertEqual(self.increasing_triplet.run([1,2,3,4,5]), True)
+        self.assertEqual(self.increasing_triplet.run([5,4,3,2,1]), False)
+        self.assertEqual(self.increasing_triplet.run([2,1,5,0,4,6]), True)
+        self.assertEqual(self.increasing_triplet.run([1,2,1,3]), True)
+        self.assertEqual(self.increasing_triplet.run([20,100,10,12,5,13]), True)
 
 if __name__ == '__main__':
     unittest.main()
