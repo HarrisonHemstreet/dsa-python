@@ -34,6 +34,7 @@ from reverse_vowels import ReverseVowels
 from reverse_words import ReverseWords
 from product_except_self import ProductExceptSelf
 from increasing_triplet import IncreasingTriplet
+from compress_string import CompressString
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -71,6 +72,7 @@ class TestSolution(unittest.TestCase):
         self.reverse_words = ReverseWords()
         self.product_except_self = ProductExceptSelf()
         self.increasing_triplet = IncreasingTriplet()
+        self.compress_string = CompressString()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -284,6 +286,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.increasing_triplet.run([2,1,5,0,4,6]), True)
         self.assertEqual(self.increasing_triplet.run([1,2,1,3]), True)
         self.assertEqual(self.increasing_triplet.run([20,100,10,12,5,13]), True)
+
+    def test_compress_string(self):
+        self.assertEqual(self.compress_string.run(["a","a","b","b","c","c","c"]), 6)
+        self.assertEqual(self.compress_string.run(["a"]), 1)
+        self.assertEqual(self.compress_string.run(["a","b","b","b","b","b","b","b","b","b","b","b","b"]), 4)
 
 if __name__ == '__main__':
     unittest.main()
