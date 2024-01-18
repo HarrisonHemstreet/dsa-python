@@ -35,6 +35,7 @@ from reverse_words import ReverseWords
 from product_except_self import ProductExceptSelf
 from increasing_triplet import IncreasingTriplet
 from compress_string import CompressString
+from move_zeroes import MoveZeroes
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -73,6 +74,7 @@ class TestSolution(unittest.TestCase):
         self.product_except_self = ProductExceptSelf()
         self.increasing_triplet = IncreasingTriplet()
         self.compress_string = CompressString()
+        self.move_zeroes = MoveZeroes()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -291,6 +293,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.compress_string.run(["a","a","b","b","c","c","c"]), 6)
         self.assertEqual(self.compress_string.run(["a"]), 1)
         self.assertEqual(self.compress_string.run(["a","b","b","b","b","b","b","b","b","b","b","b","b"]), 4)
+
+    def test_move_zeroes(self):
+        self.assertEqual(self.move_zeroes.run([0,1,0,3,12]), [1,3,12,0,0])
+        self.assertEqual(self.move_zeroes.run([0]), [0])
+        self.assertEqual(self.move_zeroes.run([0,0,1]), [1,0,0])
 
 if __name__ == '__main__':
     unittest.main()
