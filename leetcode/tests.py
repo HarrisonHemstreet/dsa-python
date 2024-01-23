@@ -37,6 +37,7 @@ from increasing_triplet import IncreasingTriplet
 from compress_string import CompressString
 from move_zeroes import MoveZeroes
 from is_subsequence import IsSubsequence
+from max_water import MaxWater
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -77,6 +78,7 @@ class TestSolution(unittest.TestCase):
         self.compress_string = CompressString()
         self.move_zeroes = MoveZeroes()
         self.is_subsequence = IsSubsequence()
+        self.max_water = MaxWater()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -305,6 +307,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.is_subsequence.run("abc","ahbgdc"),True)
         self.assertEqual(self.is_subsequence.run("axc","ahbgdc"),False)
         self.assertEqual(self.is_subsequence.run("","ahbgdc"),True)
+
+    def test_max_water(self):
+        self.assertEqual(self.max_water.run([1,8,6,2,5,4,8,3,7]), 49)
+        self.assertEqual(self.max_water.run([1,1]), 1)
+        self.assertEqual(self.max_water.run([1,2,1]), 2)
 
 if __name__ == '__main__':
     unittest.main()
