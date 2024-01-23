@@ -38,6 +38,7 @@ from compress_string import CompressString
 from move_zeroes import MoveZeroes
 from is_subsequence import IsSubsequence
 from max_water import MaxWater
+from max_ops import MaxOps
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -79,6 +80,7 @@ class TestSolution(unittest.TestCase):
         self.move_zeroes = MoveZeroes()
         self.is_subsequence = IsSubsequence()
         self.max_water = MaxWater()
+        self.max_ops = MaxOps()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -312,6 +314,10 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.max_water.run([1,8,6,2,5,4,8,3,7]), 49)
         self.assertEqual(self.max_water.run([1,1]), 1)
         self.assertEqual(self.max_water.run([1,2,1]), 2)
+    
+    def test_max_ops(self):
+        self.assertEqual(self.max_ops.run([1,2,3,4], 5), 2)
+        self.assertEqual(self.max_ops.run([3,1,3,4,3], 6), 1)
 
 if __name__ == '__main__':
     unittest.main()
