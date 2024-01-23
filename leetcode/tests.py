@@ -36,6 +36,7 @@ from product_except_self import ProductExceptSelf
 from increasing_triplet import IncreasingTriplet
 from compress_string import CompressString
 from move_zeroes import MoveZeroes
+from is_subsequence import IsSubsequence
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -75,6 +76,7 @@ class TestSolution(unittest.TestCase):
         self.increasing_triplet = IncreasingTriplet()
         self.compress_string = CompressString()
         self.move_zeroes = MoveZeroes()
+        self.is_subsequence = IsSubsequence()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -298,6 +300,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.move_zeroes.run([0,1,0,3,12]), [1,3,12,0,0])
         self.assertEqual(self.move_zeroes.run([0]), [0])
         self.assertEqual(self.move_zeroes.run([0,0,1]), [1,0,0])
+
+    def test_is_subsequence(self):
+        self.assertEqual(self.is_subsequence.run("abc","ahbgdc"),True)
+        self.assertEqual(self.is_subsequence.run("axc","ahbgdc"),False)
+        self.assertEqual(self.is_subsequence.run("","ahbgdc"),True)
 
 if __name__ == '__main__':
     unittest.main()
