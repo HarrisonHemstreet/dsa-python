@@ -1538,3 +1538,25 @@ class Solution(object):
         cols = [sum(grid[i][j] for i in xrange(len(grid))) for j in xrange(len(grid[0]))]
         return [[rows[i]+cols[j]-(len(grid)-rows[i])-(len(grid[0])-cols[j]) for j in xrange(len(grid[0]))] for i in xrange(len(grid))]
 
+# 25 January 2024
+
+# Time:  O(n)
+# Space: O(n)
+
+import itertools
+
+
+class Solution(object):
+    def flipgame(self, fronts, backs):
+        """
+        :type fronts: List[int]
+        :type backs: List[int]
+        :rtype: int
+        """
+        same = {n for i, n in enumerate(fronts) if n == backs[i]}
+        result = float("inf")
+        for n in itertools.chain(fronts, backs):
+            if n not in same:
+                result = min(result, n)
+        return result if result < float("inf") else 0
+
