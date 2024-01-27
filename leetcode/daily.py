@@ -1588,3 +1588,18 @@ class Solution2(object):
             return str(num)
         return self.convertToBase7(num // 7) + str(num % 7)
 
+# 27 January 2024
+
+# Time:  O(1)
+# Space: O(1)
+
+# math
+class Solution(object):
+    def findDelayedArrivalTime(self, arrivalTime, delayedTime):
+        """
+        :type arrivalTime: int
+        :type delayedTime: int
+        :rtype: int
+        """
+        return (arrivalTime + delayedTime)%24
+
