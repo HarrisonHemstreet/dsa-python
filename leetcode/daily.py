@@ -2596,3 +2596,17 @@ class Solution(object):
                     dp[i][i+l] += prefix[i+l+1] - prefix[i]
         return dp[0][len(stones)-1]
 
+# 25 February 2024
+
+# Time:  O(n^2)
+# Space: O(1)
+
+# array
+class Solution(object):
+    def findChampion(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        return next(u for u in xrange(len(grid)) if sum(grid[u]) == len(grid)-1)
+
