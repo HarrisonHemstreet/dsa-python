@@ -2610,3 +2610,20 @@ class Solution(object):
         """
         return next(u for u in xrange(len(grid)) if sum(grid[u]) == len(grid)-1)
 
+# 26 February 2024
+
+# Time:  O(n)
+# Space: O(n)
+
+import collections
+
+
+class Solution(object):
+    def largestUniqueNumber(self, A):
+        """
+        :type A: List[int]
+        :rtype: int
+        """
+        A.append(-1)
+        return max(k for k,v in collections.Counter(A).items() if v == 1)
+
