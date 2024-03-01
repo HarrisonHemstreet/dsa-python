@@ -41,6 +41,7 @@ from max_water import MaxWater
 from max_ops import MaxOps
 from find_max_average import FindMaxAverage
 from max_vowels import MaxVowels
+from max_odd_binary_number import MaxOddBinaryNumber
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -85,6 +86,7 @@ class TestSolution(unittest.TestCase):
         self.max_ops = MaxOps()
         self.find_max_average = FindMaxAverage()
         self.max_vowels = MaxVowels()
+        self.max_odd = MaxOddBinaryNumber()
 
     def test_two_sum(self):
         self.assertEqual(self.two_sum.run([2,7,11,15], 9), [0,1])
@@ -337,6 +339,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.max_vowels.run("abciiidef", 3), 3)
         self.assertEqual(self.max_vowels.run("aeiou", 2), 2)
         self.assertEqual(self.max_vowels.run("leetcode", 3), 2)
+
+    def test_max_odd(self):
+        self.assertEqual(self.max_odd.run("100"), "001")
+        self.assertEqual(self.max_odd.run("010"), "001")
+        self.assertEqual(self.max_odd.run("0101"), "1001")
 
 if __name__ == '__main__':
     unittest.main()
