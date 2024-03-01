@@ -2854,3 +2854,23 @@ class Solution2(object):
                     dp[i+1] = min(dp[i+1], dp[(j-1)+1]+1)
         return dp[-1] if dp[-1] != float("inf") else -1
 
+# 01 March 2024
+
+# Time:  O(n)
+# Space: O(1)
+
+class Solution(object):
+    def maxDepth(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        result = curr = 0
+        for c in s:
+            if c == '(':
+                curr += 1
+                result = max(result, curr)
+            elif c == ')':
+                curr -= 1
+        return result
+
