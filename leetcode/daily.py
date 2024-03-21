@@ -3767,3 +3767,19 @@ class Solution(object):
                         break
         return is_match
 
+# 21 March 2024
+
+# Time:  O(n)
+# Space: O(1)
+
+import fractions
+
+
+class Solution(object):
+    def findGCD(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        return fractions.gcd(min(nums), max(nums))
+
