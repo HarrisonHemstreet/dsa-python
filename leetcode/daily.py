@@ -5303,3 +5303,23 @@ class Solution(object):
             result = max(result, right-left+1)
         return result
 
+# 02 May 2024
+
+# Time:  O(n)
+# Space: O(n)
+
+# stack
+class Solution(object):
+    def removeStars(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        result = []
+        for c in s:
+            if c == '*':
+                result.pop()
+            else:
+                result.append(c)
+        return "".join(result)
+
