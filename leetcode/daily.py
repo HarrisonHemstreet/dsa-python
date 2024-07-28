@@ -6430,3 +6430,24 @@ class Solution(object):
         return max(merge(max_digits1[i], max_digits2[k-i]) \
                    for i in xrange(max(0, k - n), min(k, m) + 1))
 
+# 28 July 2024
+
+# Time:  O(n^2)
+# Space: O(n)
+
+class Solution(object):
+    def stoneGame(self, piles):
+        """
+        :type piles: List[int]
+        :rtype: bool
+        """
+        if len(piles) % 2 == 0 or len(piles) == 1:
+            return True
+
+        dp = [0] * len(piles)
+        for i in reversed(xrange(len(piles))):
+            dp[i] = piles[i]
+            for j in xrange(i+1, len(piles)):
+                dp[j] = max(piles[i] - dp[j], piles[j] - dp[j - 1])
+        return dp[-1] >= 0
+
